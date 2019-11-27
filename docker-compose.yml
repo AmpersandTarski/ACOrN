@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  phptools:
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - "8080:80"
+
+  vscode:
+    image: codercom/code-server
+    command: --password=zoepersecreet
+    ports:
+      - "8443:8443"
+    links:
+      - files
+
+  files:
+    image: alpine:latest
+    volumes:
+      - ./volumes:/var/www/html/ACOrN
+
+  latex:
+    image: thomasweise/docker-texlive-full
