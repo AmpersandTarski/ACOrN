@@ -1,7 +1,7 @@
 # ACOrN
 ACOrN is a tool that is being used by Ordina for analyzing Archimate repositories.
 
-If you want to deploy it, use
+If you want to deploy it,  use
 ```
    .../git/ACOrN> docker-compose up -d
 ```
