@@ -9,7 +9,7 @@ on a succesful authentication, some userID and an idpID become available, such t
 the combination of (idpID,userID) identifies the user (i.e. the Account of the user).
 +}
 
-IDENT UIDs: UID(uidIdP,uidUserid)
+IDENT UIdents: UID(uidIdP,uidUserid)
 RELATION uidUserid[UID*UserID] [UNI,TOT] -- Identifier for the user in the realm of the IdP that issued it.
 RELATION uidIdP[UID*IdP]    [UNI]     -- Identifier for the third-party IdP that issues the uidUserid. If none is given, the UserID is issued by the application itself.
 

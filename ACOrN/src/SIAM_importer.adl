@@ -69,16 +69,16 @@ REPRESENT RoleName TYPE ALPHANUMERIC
    VIOLATION (TXT "{EX} InsPair;accDefaultRoles;Account;", SRC I, TXT ";Role;", TGT I) --}
 
 {- ROLE ExecEngine MAINTAINS "All accounts must have the role User"
-   RULE "All accounts must have the role User" : V[Account*Role];'User' |- accAllowedRoles
+   RULE "All accounts must have the role User" : V[Account*Role];"User" |- accAllowedRoles
    VIOLATION (TXT "{EX}InsPair;accAllowedRoles;Account;", SRC I, TXT ";Role;", TGT I) --}
    
 {- ROLE ExecEngine MAINTAINS "None of the accounts may have the role SYSTEM"
-   RULE "None of the accounts may have the role SYSTEM" : accAllowedRoles;'SYSTEM' |- V
+   RULE "None of the accounts may have the role SYSTEM" : accAllowedRoles;"SYSTEM" |- V
    VIOLATION (TXT "{EX}DelPair;accAllowedRoles;Account;", SRC I, TXT ";Role;", TGT I) --}
    
 {- RELATION orgRole[Organization*Role] MEANING "Roles that are applicable to all accounts of the organization"
    ROLE ExecEngine MAINTAINS "Automatically assign organization roles"
-   RULE "Automatically assign organization roles" : accOrg;orgRole;(I-'SYSTEM') |- accAllowedRoles
+   RULE "Automatically assign organization roles" : accOrg;orgRole;(I-"SYSTEM") |- accAllowedRoles
    VIOLATION (TXT "{EX}InsPair;accAllowedRoles;Account;", SRC I, TXT ";Role;", TGT I) --}
 
 ENDCONTEXT
