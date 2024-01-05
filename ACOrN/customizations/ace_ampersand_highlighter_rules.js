@@ -7,7 +7,7 @@ var AmpersandHighlightRules = function () {
     //           caseInsensitive: false, // [Optional] boolean: whether or not match is case insenstive
     //         }
     this.$rules = {
-        start : [{
+        start: [{
             token: "comment",
             regex: "--[^\n\r]*", // line comment
             caseInsensitive: false
@@ -30,10 +30,10 @@ var AmpersandHighlightRules = function () {
             regex: "\[(\s*+(INJ|SUR|UNI|TOT|SYM|ASY|RFX|IRF|TRN|PROP)(\s*+(,\s*+(INJ|SUR|UNI|TOT|SYM|ASY|RFX|IRF|TRN|PROP))*+)?+)?+\s*+\]"
         }, {
             token: "keyword", // Frontend keywords
-            regex: "\b(INTERFACE|FOR|[Cc][Rr][Uu][Dd]|BOX|ROWS|TABS|COLS|LINKTO)\b"
+            regex: "\b(INTERFACE|FOR|[Cc][Rr][Uu][Dd]|BOX|BOX<FORM>|TABS|BOX<TABLE>|LINKTO)\b"
         }, {
             token: "keyword", // Frontend templates
-            regex: "\b<(TABS|ROWS|COLS|SCOLS|HCOLS|HROWS|SHCOLS|SPCOLS|SPHCOLS|ROWSNL|COLSNL)>\b"
+            regex: "\b<(TABS|BOX<FORM>|BOX<TABLE>|SCOLS|HCOLS|HROWS|SHCOLS|SPCOLS|SPHCOLS|ROWSNL|COLSNL)>\b"
         }, {
             token: "keyword", // Specials
             regex: "(\bExecEngine\b|\b{EX}\b|\b(InsPair|DelPair|NewStruct|DelAtom)\b|'ONE'|\"_SESSION\")\[SESSION\]|\"_SESSION\"|\bSESSION\b|\b_NEW\b)"

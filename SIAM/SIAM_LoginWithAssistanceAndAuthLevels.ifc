@@ -22,7 +22,7 @@ INTERFACE "Login (ALvLs)": "_SESSION"[SESSION] cRud BOX <ROWSNL>
       , "Auth.level": sessionAuthISOLevel cRUd
 --$The following two lines are meant for demonstration contexts only
       , "Please help": sessionLoginAssist cRUd
-      , " ": sessionLoginAssist;(V-(V;accIsActive;V));'Cannot help - there are no (active) accounts'[LoginMessage] cRud
+      , " ": sessionLoginAssist;(V-(V;accIsActive;V));"Cannot help - there are no (active) accounts"[LoginMessage] cRud
       ]
 --$This is for an easy login, which is just for testing purposes
    , "Active accounts": sessionLoginAssist;V[SESSION*Account];accIsActive cRud BOX <SHCOLS>

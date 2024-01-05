@@ -2,7 +2,7 @@
 -- This is a stand-alone context used for demonstrating and testing Sessions, Identity and Access Management.
 
 -- This is the testing file for SIAM v 2.1
-RULE "This file expects to load SIAM version 2.x": 'SIAM';moduleVsnMajor |- moduleVsnMajor;'2'
+RULE "This file expects to load SIAM version 2.x": "SIAM";moduleVsnMajor |- moduleVsnMajor;2
 VIOLATION (TXT "The SIAM Module files that you have INCLUDEd have major version number ", TGT I)
 
    INCLUDE "../SIAM/SIAM_Module-versioning.adl"   -- the version definition for this module

@@ -31,7 +31,7 @@ INTERFACE "Login/Register": "_SESSION"[SESSION] cRud BOX <ROWSNL>
 [ "A user is logged in": I[SESSION] /\ sessionAccount;sessionAccount~ cRud BOX <ROWSNL>
    [ "Row:Logout Buttons": I[SESSION] cRud BOX <COLSNL>
       [ "Logout" : I[SESSION] cRud BOX <PROPBUTTON> [ property : logoutRequest cRUd ]
-      , "Current Auth. level text": V;'Auth. level ='[IfcText] cRud <STRONG>
+      , "Current Auth. level text": V;"Auth. level ="[IfcText] cRud <STRONG>
       , "Current Auth. level value": sessionAuthISOLevel cRud
 --      , "->Developer": I-sessionDev cRud BOX <PROPBUTTON> [ property : sessionDev cRUd ]
 --      , "Normal User":   sessionDev cRud BOX <PROPBUTTON> [ property : sessionDev cRUd ]
@@ -44,7 +44,7 @@ INTERFACE "Login/Register": "_SESSION"[SESSION] cRud BOX <ROWSNL>
    ]
 , "No user is logged in": "_SESSION"-(sessionAccount;sessionAccount~) cRud BOX <ROWSNL>
    [ "Row:Login": I[SESSION]-sessionSRI cRud BOX <ROWSNL>
-      [ "Login": I[SESSION] {-INTERFACE "{U/PW Login}"-} cRud COLS
+      [ "Login": I[SESSION] {-INTERFACE "{U/PW Login}"-} cRud BOX<TABLE>
          [ "Userid": loginUserid cRUd
          , "Password": loginPassword crUd -- crUd is needed for Passwords
          , " ": I cRud BOX <ROWSNL>
@@ -53,7 +53,7 @@ INTERFACE "Login/Register": "_SESSION"[SESSION] cRud BOX <ROWSNL>
                , disabled : I - (loginUserid;loginUserid~ /\ loginPassword;loginPassword~) cRud
          ]  ]  ]
       ]
-   , "Row:Registration": sessionSRI cRud ROWS
+   , "Row:Registration": sessionSRI cRud BOX<FORM>
       [ "Userid" : loginUserid cRUd
       , "Password" : registerPassword crUd -- crUd is needed for Passwords
       , "Your (full) name" : sessionPersonRef cRUd
@@ -78,7 +78,7 @@ INTERFACE "Login/Register": "_SESSION"[SESSION] cRud BOX <ROWSNL>
       , "Hide active accounts": sessionLoginAssist cRud BOX <PROPBUTTON> [ property : sessionLoginAssist cRUd ]
       , "Show inactive accounts": (V;(I-accIsActive);V) /\ I-sessionSIA cRud BOX <PROPBUTTON> [ property : sessionSIA cRUd ]
       , "Hide inactive accounts": (V;(I-accIsActive);V) /\   sessionSIA cRud BOX <PROPBUTTON> [ property : sessionSIA cRUd ]
-      , "set authentication level": V;'Auth.Level:'[IfcText] cRud <STRONG>
+      , "set authentication level": V;"Auth.Level:"[IfcText] cRud <STRONG>
       , "Auth. level": loginISOLevel cRUd
       , "Register": (I[SESSION]-(sessionSRI \/ sessionSIA \/ sessionLoginAssist)) cRud BOX <PROPBUTTON> [ property : sessionSRI cRUd ]
       ]
